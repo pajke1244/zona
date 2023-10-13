@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="css.css">
+</head>
+<body>
+<section>
+  <div class="progressbarWrapper">
+    <span id="greenBar"></span>
+  </div>
+  <h1 id="message" style="text-align: center"></h1> <!-- Dodali smo element za prikazivanje poruke -->
+  <button onclick="move()">PRITISNI AKO SMES</button>
+</section>
+
+</body>
+</html>
+<script type="text/javascript">
+function move() {
+  let elem = document.getElementById("greenBar");
+  let message = document.getElementById("message"); // Dodali smo referencu na element poruke
+  let stepValue = 0;
+  let id = setInterval(frame, 500);
+
+  function frame() {
+    if (stepValue >= 100) {
+      clearInterval(id);
+      message.innerHTML = "Izađi iz komfor zone :-D"; // Postavljamo tekst poruke
+    } else {
+      elem.style.width = (stepValue + 10) + "%";
+      elem.innerHTML = (stepValue + 10) + "%";
+      stepValue = stepValue + 10;
+    }
+  }
+}
+
+
+</script>
